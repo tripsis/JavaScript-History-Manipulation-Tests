@@ -35,6 +35,9 @@
     var _loadPageContent = function (url, successCallback) {
         // Load the #main content from the target page into this page
         $("#main").load(url + " #main", function () {
+
+            $("title").text("Changed"); // placeholder until I work out how to load this with jQuery.
+
             if (successCallback) {
                 successCallback(url);
             }
