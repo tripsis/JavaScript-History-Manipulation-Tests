@@ -18,7 +18,7 @@
 
         links.click(function () {
 
-            // Get the URL of whatever we were clicking on
+            // Get the target URL of whatever we were clicking on
             var url = $(this).attr("href");
 
             // Load the content into the container on the current page
@@ -33,14 +33,26 @@
     };
 
     var _loadPageContent = function (url, successCallback) {
-        // Load the #main content from the target page into this page
-        $("#main").load(url + " #main", function () {
 
-            $("title").text("Changed"); // placeholder until I work out how to load this with jQuery.
+        $.get(url, function (response) {
 
+            alert(response);
+
+            // Page title
+            if (response.title) {
+                $("title").text(response.title);
+            }
+
+            // Page content
+            if (response.content) {
+                $("#main").html(response.content);
+            }
+
+            // Callback
             if (successCallback) {
                 successCallback(url);
             }
+
         });
     };
 
