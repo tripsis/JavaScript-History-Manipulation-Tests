@@ -1,4 +1,4 @@
-﻿var jqueryHistoryHelper = function () {
+﻿function jqueryHistoryHelper() {
 
     this.init = function (links) {
 
