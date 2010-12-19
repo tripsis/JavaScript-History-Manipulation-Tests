@@ -42,6 +42,11 @@
     };
 
     var _setPageUrl = function (url) {
+        // PushState Signature: window.history.pushState([State Object], [Page Title], [Page URL]);
+        //
+        // In this example, we're just adding the URL to the state object but we could
+        // add the entire page content if we wanted (although this could cause the memory
+        // to grow very quickly and wouldn't update with changes to the page on the server.
         window.history.pushState(url, url, url);
     };
 
